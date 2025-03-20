@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Categorías</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Categorías</h1>
+    <ul>
+        {% for categoria in categorias %}
+            <li>
+                <a href="{% url 'detalle_categoria' categoria.pk %}">
+                    {{ categoria.nombre }}
+                </a>
+            </li>
+        {% empty %}
+            <h2>Aún no hay categorías agregadas</h2>
+        {% endfor %}
+    </ul>
+</body>
+</html>

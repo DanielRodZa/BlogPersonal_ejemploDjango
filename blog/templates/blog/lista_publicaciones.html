@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Publicaciones</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Publicaciones</h1>
+    <ul>
+        {% for publicacion in publicaciones %}
+            <li>
+              <a href="{% url 'detalle_publicacion' publicacion.pk %}">
+                  {{ publicacion.titulo }}
+              </a>
+            </li>
+        {% empty %}
+            <h2>Aún no hay publicaciones</h2>
+        {% endfor %}
+    </ul>
+</body>
+</html>
